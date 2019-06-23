@@ -22,6 +22,7 @@ class WebsiteEventSaleController(WebsiteEventController):
         if order.amount_total:
             order.action_confirm()  # tde notsure: email sending ?
             attendees = request.env['event.registration'].browse(list(attendee_ids))
+            print(attendees)
             # clean context and session, then redirect to the confirmation page
             request.website.sale_reset()
             return request.render("website_event.registration_complete", {
@@ -37,8 +38,10 @@ class Congratulations(http.Controller):
     
     @http.route('/event/payment_successful', type='http', auth='public', methods=['POST'], website=True, csrf=False)
     def show_congratulation_webpage(self, **kw):
-        attendees = request.env['event.registration']
-        orders = attendees.reg_paid()
+        attendees = request.env['event.registration'].browse(list(attendee_ids))
+        print(attendees)
+        for attendee in attendees: 
+            attendee.reg_paid()
         return http.request.render('abujaweek.paid_thank_you', {
             'attendees': attendees,
             'orders': orders})

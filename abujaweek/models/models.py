@@ -73,6 +73,7 @@ class SaleOrder(models.Model):
         string='Quantity(Number of Tickets)',
         compute='_total_unit', readonly=True)
     
+    @api.one
     @api.depends('order_line.product_uom_qty')
     def _total_unit(self):
         quantities = 0.0
