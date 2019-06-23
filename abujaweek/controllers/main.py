@@ -37,7 +37,7 @@ class WebsiteEventSaleController(WebsiteEventController):
 class Congratulations(WebsiteEventController):
     
     @http.route('/event/payment_successful', type='http', auth='public', methods=['POST'], website=True, csrf=False)
-    def show_congratulation_webpage(self, **post):
+    def show_congratulation_webpage(self, event, **post):
         order = request.website.sale_get_order(force_create=1)
         attendee_ids = set()
 
