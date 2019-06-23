@@ -34,7 +34,7 @@ class WebsiteEventSaleController(WebsiteEventController):
 
         
 
-class Congratulations(http.Controller):
+class Congratulations(WebsiteEventController):
     
     @http.route('/event/payment_successful', type='http', auth='public', methods=['POST'], website=True, csrf=False)
     def show_congratulation_webpage(self, **kw):
