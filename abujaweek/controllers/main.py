@@ -53,6 +53,7 @@ class Congratulations(WebsiteEventController):
             attendee.reg_paid()
         return http.request.render('abujaweek.paid_thank_you', {
             'attendees': attendees,
+            'event': event,
             'orders': orders})
         
     @http.route('/event/payment_failed', type='http', auth='public', methods=['POST'], website=True, csrf=False)
