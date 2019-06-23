@@ -2,7 +2,7 @@
 <odoo>
 	<data>
 	
-		<template id="tamerri_registration_attendee_details" name="Registration Attendee Details" inherit_id="website_event.registration_attendee_details">
+		<template id="abujaweek_registration_attendee_details" name="Registration Attendee Details" inherit_id="website_event.registration_attendee_details">
    			<xpath expr="//button[@type='submit']" position="replace">
                 <button type="submit" class="btn btn-primary">Continue &amp; Pay</button>
         	</xpath>
@@ -87,7 +87,7 @@
 		 </t>
 		 </template>
 		 
-		 <template id="tamerri_registration_complete" name="Registration Complete" inherit_id="website_event.registration_complete">
+		 <template id="abujaweek_registration_complete" name="Registration Complete" inherit_id="website_event.registration_complete">
         	
         	<xpath expr="//h3" position="after">
         		<h4>Registration Badge/Ticket will be sent once payment has been made</h4>
@@ -117,15 +117,15 @@
 		                </tr>
 		                <t t-if="event.vendor == False">
 							<form method="POST" action="https://voguepay.com/pay/">
-								<input type="hidden" name="v_merchant_id" value="2020-0073669" />
-								<input type="hidden" name="memo" value="Tamerri Festival Ticket" />
-								<input type="hidden" name="success_url" value="https://tamerrifestival18.odoo.com/event/payment_successful" />
-								<input type="hidden" name="fail_url" value="https://tamerrifestival18.odoo.com/event/payment_failed" />
-								<input type="hidden" name="developer_code" value="5bd4e556636a9" />
-								<input type="hidden" name="cur" value="NGN" />
-								<input type="hidden" name="item_1" value="Cultured Bonfire Ticket" />
-								<input type="hidden" name="price_1" t-att-value="attendee.total" />
-								<input type="hidden" name="description_1" value="Tamerri Festival Ticket" />
+								<input type="hidden" name="v_merchant_id" value="2020-0073669"/>
+								<input type="hidden" name="memo" value="Cultured Bonfire Ticket"/>
+								<input type="hidden" name="success_url" value="https://abujaweek.odoo.com/event/payment_successful"/>
+								<input type="hidden" name="fail_url" value="https://abujaweek.odoo.com/event/payment_failed"/>
+								<input type="hidden" name="developer_code" value="5bd4e556636a9"/>
+								<input type="hidden" name="cur" value="NGN"/>
+								<input type="hidden" name="item_1" value="Cultured Bonfire Ticket"/>
+								<input type="hidden" name="price_1" t-att-value="attendee.total"/>
+								<input type="hidden" name="description_1" value="Cultured Bonfire Ticket"/>
 								<input type="image" src="https://voguepay.com/images/buttons/Buynow.png" class="buynowimg" style="width: 30%;" />
 							</form>
 						</t>
@@ -133,9 +133,9 @@
 							<form method="POST" action="https://voguepay.com/pay/">
 								<input type="hidden" name="v_merchant_id" value="2020-0073669" />
 								<input type="hidden" name="memo" value="Vendor Space Payment" />
-								<input type="hidden" name="success_url" value="https://tamerrifestival18.odoo.com/payment_successful" />
-								<input type="hidden" name="fail_url" value="https://tamerrifestival18.odoo.com/event/payment_failed" />
-								<input type="hidden" name="developer_code" value="5bd4e556636a9" />
+								<input type="hidden" name="success_url" value="https://abujaweek.odoo.com/payment_successful" />
+								<input type="hidden" name="fail_url" value="https://abujaweek.odoo.com/event/payment_failed" />
+								<input type="hidden" name="developer_code" value="5bd4e556636a9"/>
 								<input type="hidden" name="cur" value="NGN" />
 								<input type="hidden" name="item_1" value="Vendor Space" />
 								<input type="hidden" name="price_1" value="10000" />

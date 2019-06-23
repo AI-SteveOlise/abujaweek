@@ -2,8 +2,8 @@
 <odoo>
 	<data>
 	
-	<record id="tamerri_view_event_registration_form" model="ir.ui.view">
-      <field name="name">tamerri.event.registration.form</field>
+	<record id="abujaweek_view_event_registration_form" model="ir.ui.view">
+      <field name="name">abujaweek.event.registration.form</field>
       <field name="model">event.registration</field>
       <field name="priority" eval="7" />
       <field name="inherit_id" ref="event.view_event_registration_form"/>
@@ -31,8 +31,8 @@
         </field>
     </record>
 		
-	<record id="tamerri_view_event_form" model="ir.ui.view">
-      <field name="name">tamerri.event.event.form</field>
+	<record id="abujaweek_view_event_form" model="ir.ui.view">
+      <field name="name">abujaweek.event.event.form</field>
       <field name="model">event.event</field>
       <field name="priority" eval="7" />
       <field name="inherit_id" ref="event.view_event_form"/>

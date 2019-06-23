@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//abujaweek/__manifest__.py=utf-8
+encoding//abujaweek/controllers/main.py=utf-8
 encoding//controllers/__init__.py=utf-8
 encoding//controllers/main.py=utf-8
 encoding//models/__init__.py=utf-8
