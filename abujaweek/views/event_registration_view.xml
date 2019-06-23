@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+	
+	<record id="tamerri_view_event_registration_form" model="ir.ui.view">
+      <field name="name">tamerri.event.registration.form</field>
+      <field name="model">event.registration</field>
+      <field name="priority" eval="7" />
+      <field name="inherit_id" ref="event.view_event_registration_form"/>
+      <field name="arch" type="xml">
+      		<xpath expr="//button[@name='action_send_badge_email']" position="replace">
+        		<button name="action_send_badge_email" string="Send by Email" type="object" class="oe_highlight" attrs="{'invisible':['|', ('paid','=', False), ('state','in',('draft','cancel'))]}"/>
+        	</xpath>
+      		<xpath expr="//button[@name='confirm_registration']" position="before">
+        		<button name="reg_paid" string="Verify Payment" type="object" class="oe_highlight" attrs="{'invisible':['|', ('paid','=', True), ('state','in',('draft','cancel','done'))]}"/>
+        	</xpath>
+			<field name="email" position="after">
+				  <field name="paid" readonly="1"/>
+	              <field name="total"/>
+	              <field name="quantity"/>
+	              <separator/>
+	              <field name="vendor"/>
+	              <field name="business" attrs="{'invisible':[('vendor','!=',True)]}"/>
+	              <field name="address" attrs="{'invisible':[('vendor','!=',True)]}"/>
+	              <field name="city" attrs="{'invisible':[('vendor','!=',True)]}"/>
+	              <field name="business_phone" attrs="{'invisible':[('vendor','!=',True)]}"/>
+	              <field name="bus_state" attrs="{'invisible':[('vendor','!=',True)]}"/>
+	              <field name="website" attrs="{'invisible':[('vendor','!=',True)]}"/>
+	              <field name="sells" attrs="{'invisible':[('vendor','!=',True)]}"/>
+        	</field>
+        </field>
+    </record>
+		
+	<record id="tamerri_view_event_form" model="ir.ui.view">
+      <field name="name">tamerri.event.event.form</field>
+      <field name="model">event.event</field>
+      <field name="priority" eval="7" />
+      <field name="inherit_id" ref="event.view_event_form"/>
+      <field name="arch" type="xml">
+        	<field name="auto_confirm" position="after">
+        			<field name="vendor"/>
+        	</field>
+        </field>
+    </record>
+    
+	</data>
+</odoo>
