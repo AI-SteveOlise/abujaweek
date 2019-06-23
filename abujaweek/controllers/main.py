@@ -38,9 +38,11 @@ class Congratulations(http.Controller):
     
     @http.route('/event/payment_successful', type='http', auth='public', methods=['POST'], website=True, csrf=False)
     def show_congratulation_webpage(self, **kw):
+        attendee_ids = set()
+        attendee_ids |= set(cart_values.get('attendee_ids', []))
         attendees = request.env['event.registration'].browse(list(attendee_ids))
         print(attendees)
-        for attendee in attendees: 
+        for attendee in attendees:
             attendee.reg_paid()
         return http.request.render('abujaweek.paid_thank_you', {
             'attendees': attendees,
